@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Inventario_LayoutAlternativo</string>
+
+    <string-array name="spinner_processadores">
+        <item>Pentium Dual Core</item>
+        <item>Intel Core i3</item>
+        <item>Intel Core i5</item>
+    </string-array>
+
+
+</resources>
