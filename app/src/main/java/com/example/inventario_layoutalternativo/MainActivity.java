@@ -7,6 +7,9 @@ import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class MainActivity extends AppCompatActivity {
 
 
@@ -14,6 +17,10 @@ public class MainActivity extends AppCompatActivity {
     private SeekBar seekBar;
     private TextView textSeekbar;
     private String memoriaRAM;
+    private int incrementador = 0;
+
+    private DatabaseReference referencia = FirebaseDatabase.getInstance().getReference();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,5 +53,20 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+        DatabaseReference dados = referencia.child("dados");
+
+        Equipamento equipamento2 = new Equipamento();
+        equipamento2.setUsuario("Lourena");
+        equipamento2.setLocal("Tesouraria");
+        dados.child(String.valueOf(incrementador)).setValue(equipamento2);
+        incrementador ++;
+
+        Equipamento equipamento3 = new Equipamento();
+        equipamento3.setUsuario("Danielly");
+        equipamento3.setLocal("Tesouraria");
+        dados.child(String.valueOf(incrementador)).setValue(equipamento3);
+
     }
 }
+
